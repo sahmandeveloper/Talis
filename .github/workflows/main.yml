@@ -17,8 +17,9 @@ jobs:
           wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
           unzip ngrok-stable-linux-amd64.zip
           chmod +x ngrok
-          echo ${{ secrets.NGROK_AUTH_TOKEN }} | ngrok authtoken -
           sudo mv ngrok /usr/local/bin/
+          echo ${{ secrets.NGROK_AUTH_TOKEN }} | ngrok authtoken -
+          
         env:
           NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
 
