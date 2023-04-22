@@ -8,14 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    services:
-      ngrok:
-        image: wernight/ngrok
-        ports:
-          - 22:22
-        options: --region=us --hostname=localhost
-    steps:
-      - uses: actions/checkout@v2
+        
 
       - name: Start Tails
         run: |
