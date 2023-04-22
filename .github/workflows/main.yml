@@ -18,7 +18,7 @@ jobs:
           unzip ngrok-stable-linux-amd64.zip
           chmod +x ngrok
           sudo mv ngrok /usr/local/bin/
-          ngrok authtoken $Env:NGROK_AUTH_TOKEN
+          ngrok authtoken 1vnsyS5WyJJl4DRyQpsbtrv89uR_351cgadRbV8NU9aqBV1Ut
           
         env:
           NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
