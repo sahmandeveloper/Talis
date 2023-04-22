@@ -1,9 +1,14 @@
 name: SSH to Ubuntu with Ngrok
 on: [push]
 
+env:
+  # Set the time in seconds for how long you want the workflow to run
+  TIMEOUT: 21600
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Install ngrok
         run: |
@@ -21,3 +26,6 @@ jobs:
           sudo sed -i 's/#PasswordAuthentication/PasswordAuthentication/g' /etc/ssh/sshd_config
           sudo service ssh restart
           nohup ssh -o "StrictHostKeyChecking=no" -R 22:localhost:22 ${{ secrets.NGROK_AUTH_TOKEN }}@ssh.ngrok.io > /dev/null 2>&1 &
+
+      - name: Wait for timeout
+        run: sleep $TIMEOUT
