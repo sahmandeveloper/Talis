@@ -29,6 +29,6 @@ jobs:
           sudo apt-get install -y openssh-server
           sudo sed -i 's/#PasswordAuthentication/PasswordAuthentication/g' /etc/ssh/sshd_config
           sudo service ssh restart
-          ngrok tcp 22 > /dev/null
+          ngrok tcp 22 > /dev/null & 
       - name: Wait for timeout
         run: sleep $TIMEOUT
