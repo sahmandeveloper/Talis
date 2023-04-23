@@ -30,5 +30,11 @@ jobs:
           sudo sed -i 's/#PasswordAuthentication/PasswordAuthentication/g' /etc/ssh/sshd_config
           sudo service ssh restart
           ngrok tcp 22 > /dev/null & 
+      - name: Generate SSH key
+        run: ssh-keygen -t rsa -b 4096 -C "my@zorilith.online" -N "" -f ~/.ssh/id_rsa
+
+      - name: Print public key
+        run: cat ~/.ssh/id_rsa.pub
+
       - name: Wait for timeout
         run: sleep $TIMEOUT
