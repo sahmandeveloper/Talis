@@ -3,7 +3,7 @@ on: [push]
 
 env:
   # Set the time in seconds for how long you want the workflow to run
-  TIMEOUT: 21600
+  TIMEOU: 21600
 
 jobs:
   build:
@@ -37,4 +37,4 @@ jobs:
         run: cat ~/.ssh/id_rsa.pub
 
       - name: Wait for timeout
-        run: sleep $TIMEOUT
+        run: sleep $TIMEOU
